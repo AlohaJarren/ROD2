@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Image Regnotition</title>
+
+  <script src="./js/tracking.js"></script>
+
+  <style>
+    ul {
+      margin-right: 35px;
+      list-style-type: none;
+
+    }
+
+    img {
+      width: 900px;
+      height: 500px;
+    }
+
+    .rect {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      left: -1000px;
+      top: -1000px;
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #box1 {
+      height: 900px;
+      width: 1000px;
+      border-style: solid;
+      border-width: 5px;
+    }
+
+    #box2 {
+      height: 300px;
+      width: 300px;
+      border-style: solid;
+      border-width: 5px;
+    }
+
+    .title {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Image Regnotition">
+  </div>
+
+  <div class="flex-container">
+    <div id="box1">
+      <div class="title">
+        <h2>Detection</h2>
+        <div class="demo-frame">
+          <div class="demo-container">
+            <img id="img" src="./images/RODTree.jpg" />
+          </div>
+          <h4>ROT!
+          </h4>
+
+          <p>it seems that this picture is a pulled out bark tree</p>
+          <p>this picture has vertical stripes of black</p>
+          <p>data will be uploaded to the live heatmap</p>
+          <p>Tree seems to be dying...</p>
+          <p>Fungus are sprouting</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="box2">
+      <div class="title">
+        <h2>Current Mobile Upload : 1</h2>
+        <ul>
+          <li onclick="display1()">Vertical Spots</li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+  </div>
+  </div>
+
+  <script>
+    var images = {
+      img1: {
+        title: "Vertical Spots",
+        src: "./images/RODTree.jpg"
+      },
+
+      img2: {
+        title: "Staining Bark",
+        src: "./images/stainingTree.jpg"
+      }
+    }
+
+    window.onload = function () {
+      var img = document.getElementById('img');
+      tracking.ColorTracker.registerColor('black', function (r, g, b) {
+        if (r > 40 && r < 90 && g > 32 && g < 70 && b > 45) {
+          return true;
+        }
+        return false;
+
+      });
+
+      tracking.ColorTracker.registerColor('black2', function (r, g, b) {
+        if (r > 65 && g > 50 && b > 40) {
+          return true;
+        }
+        return false;
+
+      });
+      var demoContainer = document.querySelector('.demo-container');
+      var tracker = new tracking.ColorTracker(['black', 'black2', 'yellow']);
+      tracker.on('track', function (event) {
+        event.data.forEach(function (rect) {
+          window.plot(rect.x, rect.y, rect.width, rect.height, rect.color);
+        });
+      });
+      tracking.track('#img', tracker);
+      window.plot = function (x, y, w, h, color) {
+        var rect = document.createElement('div');
+        document.querySelector('.demo-container').appendChild(rect);
+        rect.classList.add('rect');
+        rect.style.border = '2px solid ' + color;
+        rect.style.width = w + 'px';
+        rect.style.height = h + 'px';
+        rect.style.left = (img.offsetLeft + x) + 'px';
+        rect.style.top = (img.offsetTop + y) + 'px';
+      };
+    };
+  </script>
+
+</body>
+
+</html>
