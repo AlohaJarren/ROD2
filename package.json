@@ -1,0 +1,27 @@
+{
+  "name": "rod",
+  "version": "1.0.0",
+  "description": "detecting fungus",
+  "main": "index.js",
+  "dependencies": {
+    "dat.gui": "^0.7.1",
+    "http": "^0.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlohaJarren/ROD2.git"
+  },
+  "keywords": [
+    "hawaii"
+  ],
+  "author": "hackathon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlohaJarren/ROD2/issues"
+  },
+  "homepage": "https://github.com/AlohaJarren/ROD2#readme"
+}
