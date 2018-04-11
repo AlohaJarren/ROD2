@@ -154,8 +154,8 @@ input {
     border: 2px solid;
     border-color: #567210;
     border-radius: 5px;
-    width: 150px;
-    height: 10px;
+    width: 200px;
+    height: auto;
     padding-top: 13px;
     padding-left: 40px;
     padding-right: 40px;
