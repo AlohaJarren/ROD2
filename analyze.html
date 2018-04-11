@@ -15,6 +15,7 @@
     }
 
     img {
+      border-radius: 32px;
       width: 900px;
       height: 500px;
     }
@@ -43,6 +44,7 @@
       height: 300px;
       width: 300px;
       border-style: solid;
+      border-radius:20px;
       border-width: 5px;
     }
 
@@ -54,6 +56,8 @@
 
 <body>
   <div class="Image Regnotition">
+    <button onClick="homepage()">Back</button>
+
   </div>
 
   <div class="flex-container">
@@ -91,6 +95,10 @@
   </div>
 
   <script>
+
+    function homepage() {
+      window.location.assign("./index.html");
+    }
     var images = {
       img1: {
         title: "Vertical Spots",
@@ -132,7 +140,7 @@
         var rect = document.createElement('div');
         document.querySelector('.demo-container').appendChild(rect);
         rect.classList.add('rect');
-        rect.style.border = '2px solid ' + color;
+        rect.style.border = '2px solid ' + "yellow";
         rect.style.width = w + 'px';
         rect.style.height = h + 'px';
         rect.style.left = (img.offsetLeft + x) + 'px';
