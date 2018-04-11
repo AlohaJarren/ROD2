@@ -8,6 +8,28 @@
   <script src="./js/tracking.js"></script>
 
   <style>
+
+p {
+  color:#b5652d;
+}
+#orangeBox1 {
+  color:orange; 
+  margin-top:10px;
+  padding:20px;
+  margin-bottom:20px;
+  margin-left:10px;
+}
+    h2 {
+      color:#2e6dd3;
+      font-size:30px;
+    }
+
+    h4 {
+      color:red;
+    }
+    body {
+      background-color:#00ffbf;
+    }
     ul {
       margin-right: 35px;
       list-style-type: none;
@@ -33,6 +55,8 @@
     }
 
     #box1 {
+      border-radius:10px;
+      border-color:#ed0964;
       height: 900px;
       width: 1000px;
       border-style: solid;
@@ -54,6 +78,7 @@
 
 <body>
   <div class="Image Regnotition">
+    <button id="orangeBox1" onClick="homepage()">Go Back To Home</button>
   </div>
 
   <div class="flex-container">
@@ -62,15 +87,15 @@
         <h2>Detection</h2>
         <div class="demo-frame">
           <div class="demo-container">
+
             <img id="img" src="./images/RODTree.jpg" />
           </div>
-          <h4>ROT!
+          <h4>Most Likely Rapid Ohia Death
           </h4>
 
-          <p>it seems that this picture is a pulled out bark tree</p>
-          <p>this picture has vertical stripes of black</p>
-          <p>data will be uploaded to the live heatmap</p>
-          <p>Tree seems to be dying...</p>
+          <p>Exposed Bark</p>
+          <p>vertical stripes of black</p>
+          <p>Tree seems to be white</p>
           <p>Fungus are sprouting</p>
         </div>
       </div>
@@ -91,6 +116,11 @@
   </div>
 
   <script>
+
+
+    function homepage() {
+      window.location.replace("./index.html");
+    }
     var images = {
       img1: {
         title: "Vertical Spots",
@@ -132,7 +162,7 @@
         var rect = document.createElement('div');
         document.querySelector('.demo-container').appendChild(rect);
         rect.classList.add('rect');
-        rect.style.border = '2px solid ' + color;
+        rect.style.border = '2px solid ' + "yellow";
         rect.style.width = w + 'px';
         rect.style.height = h + 'px';
         rect.style.left = (img.offsetLeft + x) + 'px';
